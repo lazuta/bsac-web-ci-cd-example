@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Белорусская государственная академия связи — образование, технологии и профессиональная среда для отрасли связи.">
+  <meta name="theme-color" content="#000000">
+  <title>БГАС — связь начинается здесь</title>
+
+  <link rel="icon" href="images/bsac_logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="БГАС — на главную">
+      <img class="brand__mark" src="images/bsac_logo.svg" alt="" width="36" height="36">
+      <span class="brand__name">БГАС</span>
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-navigation"
+      aria-label="Открыть меню"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <nav class="site-nav" id="primary-navigation" aria-label="Основная навигация">
+      <a href="#about">Об академии</a>
+      <a href="#routes">Поступающим</a>
+      <a href="#routes">Студентам</a>
+      <a class="site-nav__cta" href="#routes">
+        Начать
+        <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="eyebrow">Белорусская государственная академия связи</p>
+
+        <h1 id="hero-title">
+          Связь
+          <span>начинается</span>
+          здесь.
+        </h1>
+
+        <p class="hero__lead">
+          Среда, где инженерное образование встречается с реальной отраслью:
+          телекоммуникации, сети, цифровые сервисы и технологии будущего.
+        </p>
+
+        <div class="hero__actions" aria-label="Основные действия">
+          <a class="button button--primary" href="#routes">
+            Поступающим
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="button button--secondary" href="#about">Об академии</a>
+        </div>
+
+        <dl class="hero__facts" aria-label="Ключевые направления">
+          <div>
+            <dt>01</dt>
+            <dd>Образование</dd>
+          </div>
+          <div>
+            <dt>02</dt>
+            <dd>Наука</dd>
+          </div>
+          <div>
+            <dt>03</dt>
+            <dd>Отрасль</dd>
+          </div>
+        </dl>
+      </div>
+
+      <figure class="hero__visual">
+        <img
+          src="images/build.png"
+          alt="Главный корпус Белорусской государственной академии связи"
+          width="1448"
+          height="1086"
+          fetchpriority="high"
+        >
+        <figcaption class="hero__caption">
+          <span>Минск</span>
+          <span>БГАС</span>
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="routes" id="routes" aria-labelledby="routes-title">
+      <header class="routes__header" id="about">
+        <p class="eyebrow">Навигация</p>
+        <h2 id="routes-title">Выберите свой маршрут.</h2>
+        <p>
+          Ничего лишнего: основные точки входа для тех, кто поступает,
+          уже учится или хочет работать с академией.
+        </p>
+      </header>
+
+      <div class="routes__list">
+        <article class="route-card">
+          <p class="route-card__index" aria-hidden="true">01</p>
+          <div>
+            <h3>Поступающим</h3>
+            <p>Программы обучения, правила приёма и первый шаг к поступлению.</p>
+          </div>
+          <a href="#" aria-label="Перейти в раздел для поступающих">
+            <span>Открыть</span>
+            <span class="route-card__arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+
+        <article class="route-card">
+          <p class="route-card__index" aria-hidden="true">02</p>
+          <div>
+            <h3>Студентам</h3>
+            <p>Учебная среда, сервисы и материалы для ежедневной работы.</p>
+          </div>
+          <a href="#" aria-label="Перейти в раздел для студентов">
+            <span>Открыть</span>
+            <span class="route-card__arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+
+        <article class="route-card route-card--dark">
+          <p class="route-card__index" aria-hidden="true">03</p>
+          <div>
+            <h3>Партнёрам</h3>
+            <p>Наука, исследования и сотрудничество с отраслью связи.</p>
+          </div>
+          <a href="#" aria-label="Перейти в раздел для партнёров">
+            <span>Открыть</span>
+            <span class="route-card__arrow" aria-hidden="true">↗</span>
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span data-current-year>2026</span> БГАС</p>
+    <p>Белорусская государственная академия связи</p>
+    <a href="#top">Наверх ↑</a>
+  </footer>
+</body>
+</html>
