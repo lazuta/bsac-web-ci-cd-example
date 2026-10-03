@@ -1,41 +1,43 @@
-name: Deploy website
+name: Deploy website                     # Название workflow, которое видно во вкладке Actions
 
-on:
-  push:
-    branches:
-      - main
+on:                                      # Определяет, когда workflow должен запускаться
+  push:                                  # Автоматически запускается после события push
+    branches:                            # Ограничиваем запуск определёнными ветками
+      - main                             # Запускаем workflow только при push в ветку main
 
-  workflow_dispatch:
+  workflow_dispatch:                    # Разрешаем запускать workflow вручную через кнопку Run workflow
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+permissions:                            # Права, которые получает GitHub Actions
+  contents: read                        # Разрешаем читать файлы и код репозитория
+  pages: write                          # Разрешаем выполнять публикацию в GitHub Pages
+  id-token: write                       # Разрешаем создать временный токен для безопасного deployment
 
-concurrency:
-  group: pages
-  cancel-in-progress: true
+concurrency:                            # Настройки одновременного выполнения workflow
+  group: pages                          # Все deployment GitHub Pages объединяем в одну группу pages
+  cancel-in-progress: true              # Новый запуск отменяет предыдущий незавершённый deployment
 
-jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+jobs:                                   # Список задач, которые должен выполнить workflow
+  deploy:                               # Создаём задачу с идентификатором deploy
 
-    runs-on: ubuntu-latest
+    environment:                        # Указываем окружение, в которое выполняется deployment
+      name: github-pages                # Используем стандартное окружение GitHub Pages
+      url: ${{ steps.deployment.outputs.page_url }} # Получаем URL опубликованного сайта из шага deployment
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
+    runs-on: ubuntu-latest              # Выполняем job на временной виртуальной машине Ubuntu
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v6
+    steps:                              # Список шагов, выполняемых последовательно
 
-      - name: Upload website
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: .
+      - name: Checkout repository       # Название первого шага — получение кода проекта
+        uses: actions/checkout@v6       # Скачиваем содержимое репозитория на Ubuntu runner
 
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v5
+      - name: Configure GitHub Pages    # Название второго шага — настройка GitHub Pages
+        uses: actions/configure-pages@v6 # Подготавливаем параметры для последующей публикации
+
+      - name: Upload website            # Название третьего шага — подготовка файлов сайта
+        uses: actions/upload-pages-artifact@v5 # Упаковываем файлы сайта в специальный artifact
+        with:                           # Передаём параметры в Action
+          path: .                       # Берём для публикации всю текущую директорию проекта
+
+      - name: Deploy                    # Название последнего шага — публикация сайта
+        id: deployment                  # Даём шагу id, чтобы обращаться к его результатам
+        uses: actions/deploy-pages@v5   # Публикуем подготовленный artifact в GitHub Pages
